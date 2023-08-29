@@ -9,12 +9,12 @@ application = Flask(__name__) # initializing a flask app
 app=application
 
 @app.route('/',methods=['GET'])  # route to display the home page
-@cross_origin()
+
 def homePage():
     return render_template("index.html")
 
 @app.route('/review',methods=['POST','GET']) # route to show the review comments in a web UI
-@cross_origin()
+
 def index():
     if request.method == 'POST':
         try:
@@ -85,5 +85,5 @@ def index():
         return render_template('index.html')
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=8000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
 	#app.run(debug=True)
